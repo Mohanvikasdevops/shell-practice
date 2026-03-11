@@ -10,6 +10,7 @@ if [ $USERID -ne 0 ]; then
 fi
 
 mkdir -p $LOGS_FOLDER
+
 #By default shell will not execute, only executed when called
 VALIDAE() {
 
@@ -23,3 +24,4 @@ fi
 
 dnf install nginx -y &>> $LOGS_FILE
 VALIDAE $? "Nginx installation" 
+

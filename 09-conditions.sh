@@ -7,9 +7,9 @@ NUMBER=$1
 # -eq -> equal
 # -ne -> not equal
 
-if [ $NUMBER -gt 20 ]; then
+if [ $NUMBER -gt 25 ]; then
     echo "Given number: $NUMBER is greater than 25"
-elif [ $NUMBER -eq 20 ]; then
+elif [ $NUMBER -eq 25 ]; then
     echo "Given number: $NUMBER is equal to 25"
 else
     echo "Given number: $NUMBER is less than 25"

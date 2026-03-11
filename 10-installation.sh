@@ -2,11 +2,14 @@
 
 USERID=$(id -u)
 LOGS_FOLDER="/var/log/shell-script"
+LOGS_FILE="/var/log/shell-script/$0.log"
 
 if [ $USERID -ne 0 ]; then  
     echo "Please run this script with root user access"
     exit 1
 fi
+
+mkdir -p $LOGS_FOLDER
 #By default shell will not execute, only executed when called
 VALIDAE() {
 
@@ -18,5 +21,5 @@ else
 fi
 }
 
-dnf install nginx -y
+dnf install nginx -y &>> $LOGS_FILE
 VALIDAE $? "Nginx installation" 

@@ -6,13 +6,16 @@ if [ $USERID -ne 0 ]; then
     echo "Please run this script with root user access"
     exit 1
 fi
+#By default shell will not execute, only executed when called
+VALIDAE() {
 
-echo "Installing Nginx"
-dnf install nginx -y
-
-if [ $? -ne 0 ]; then
-    echo "Installing Nginx ... FAILURE"
+if [ $1 -ne 0 ]; then
+    echo "$2 ... FAILURE"
     exit 1
 else
-    echo "Installing Nginx ... SUCCESS"
+    echo "$2 ... SUCCESS"
 fi
+}
+
+dnf install nginx -y
+VALIDAE $? "Nginx installation" 

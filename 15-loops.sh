@@ -12,7 +12,7 @@ fi
 mkdir -p $LOGS_FOLDER
 
 #By default shell will not execute, only executed when called
-VALIDAE() {
+VALIDATE() {
 
 if [ $1 -ne 0 ]; then
     echo "$2 ... FAILURE" | tee -a $LOGS_FILE

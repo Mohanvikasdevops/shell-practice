@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e #this will be checking for errors, if errors it will exit
+trap 'echo "There is an error in $LINENO, Command: $BASH_COMMAND"' ERR
 
 USERID=$(id -u)
 LOGS_FOLDER="/var/log/shell-script"
@@ -20,7 +21,7 @@ fi
 mkdir -p $LOGS_FOLDER
 
 #By default shell will not execute, only executed when called
-VALIDATE() {
+#VALIDATE() {
 
 if [ $1 -ne 0 ]; then
     echo "$2 ... $R FAILURE $N" | tee -a $LOGS_FILE
@@ -28,7 +29,7 @@ if [ $1 -ne 0 ]; then
 else
     echo "$2 ... $G SUCCESS $N" | tee -a $LOGS_FILE
 fi
-}
+#}
 
 for package in $@ # sudo sh 14-loops.sh nginx mysql nodejs
 do

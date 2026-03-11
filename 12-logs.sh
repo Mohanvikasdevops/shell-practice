@@ -22,6 +22,9 @@ else
 fi
 }
 
-dnf install nginx -y &>> $LOGS_FILE
-VALIDAE $? "Nginx installation" 
+for package in $@ # sudo sh 12-logs.sh nginx mysql nodejs
+do
+    dnf install $package -y
+    VALIDATE $? "$package installation"
+done
 

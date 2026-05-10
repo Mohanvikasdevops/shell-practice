@@ -6,6 +6,7 @@ LOGS_FILE="/var/log/shell-script/$0.log"
 
 if  [ $USERID -ne 0 ]; then
     echo "Please run this script wirh root user access" | tee -a $LOGS_FILE
+    exit 1
 fi
 
 mkdir -p $LOGS_FOLDER 

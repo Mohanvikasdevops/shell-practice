@@ -12,11 +12,11 @@ mkdir -p $LOGS_FOLDER
 
 #By default shell will not execute, only executed when called
 VALIDATE(){
-    if [ $? -ne  0 ]; then
-        echo "Installing Nginx ... FAILURE" | tee -a $LOGS_FILE
+    if [ $1 -ne  0 ]; then
+        echo "$2 ... FAILURE" | tee -a $LOGS_FILE
         exit 1
     else
-        echo "Installing Nginx ... SUCCESS"
+        echo "$2 ... SUCCESS" | tee -a $LOGS_FILE
     fi
 }
 

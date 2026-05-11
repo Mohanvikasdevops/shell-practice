@@ -11,8 +11,8 @@ fi
 
 mkdir -p $LOGS_FOLDER 
 
-if [[ ! -f "$LOG_FILE" ]]; then
-   touch "$LOG_FILE"
+if [[ ! -f "$LOGS_FILE" ]]; then
+   touch "$LOGS_FILE"
    echo "file is created"
 else
    echo "file already created"

@@ -11,12 +11,12 @@ fi
 
 mkdir -p $LOGS_FOLDER 
 
-if [[ ! -f "$LOGS_FILE" ]]; then
-   touch "$LOGS_FILE"
-   echo "file is created"
-else
-   echo "file already created"
-fi
+# if [[ ! -f "$LOGS_FILE" ]]; then
+#    touch "$LOGS_FILE"
+#    echo "file is created"
+# else
+#    echo "file already created"
+# fi
 
 
 #By default shell will not execute, only executed when called

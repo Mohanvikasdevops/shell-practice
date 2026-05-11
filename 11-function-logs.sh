@@ -2,7 +2,7 @@
 
 USERID=$(id -u)
 LOGS_FOLDER="/var/log/shell-script"
-LOGS_FILE="/var/log/shell-script/$0.log"
+LOGS_FILE="/var/log/shell-script/ll-function-logs.log"
 
 if  [ $USERID -ne 0 ]; then
     echo "Please run this script wirh root user access" | tee -a $LOGS_FILE
@@ -10,6 +10,13 @@ if  [ $USERID -ne 0 ]; then
 fi
 
 mkdir -p $LOGS_FOLDER 
+
+if [[ ! -f "$LOG_FILE" ]]; then
+   touch "$LOG_FILE"
+   echo "file is created"
+else
+   echo "file already created"
+fi
 
 
 #By default shell will not execute, only executed when called

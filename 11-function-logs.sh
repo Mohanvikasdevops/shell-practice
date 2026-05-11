@@ -10,7 +10,7 @@ if  [ $USERID -ne 0 ]; then
 fi
 
 mkdir -p $LOGS_FOLDER 
-touch -p $LOGS_FILE
+
 
 #By default shell will not execute, only executed when called
 VALIDATE(){

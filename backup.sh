@@ -35,12 +35,12 @@ fi
 
 #Verify the directory exist and root user too
 if [! -d $source_DIR ]; then 
-    log "$R Source Direcory: $SOURCE_DIR does not exist $N"
+    echo -e "$R Source Direcory: $SOURCE_DIR does not exist $N"
     exit 1
 fi
 
 if [! -d $DEST_DIR ]; then 
-    log "$R Destination Direcory: $DEST_DIR does not exist $N"
+    echo -e "$R Destination Direcory: $DEST_DIR does not exist $N"
     exit 1
 fi
   

@@ -34,18 +34,18 @@ if [ $# -lt 2 ]; then
 fi
 
 #Verify the directory exist and root user too
-if [! -d $source_DIR ]; then 
+if [ ! -d $source_DIR ]; then 
     echo -e "$R Source Direcory: $SOURCE_DIR does not exist $N"
     exit 1
 fi
 
-if [! -d $DEST_DIR ]; then 
+if [ ! -d $DEST_DIR ]; then 
     echo -e "$R Destination Direcory: $DEST_DIR does not exist $N"
     exit 1
 fi
   
 ### Find the files
-FILES=$(find $SOURCE_DIR -name "*.log -type f -mtime +$DAYS)
+FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
 
 log "Backup started"
 log "Source Directory : $SOURCE_DIR"
@@ -61,12 +61,14 @@ else
     TIMESTAMP=$(date +%F-%H-%M-%S)
     ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIMESTAMP.tar.gz"
     echo "archive name: $ZIP_FILE_NAME"
-    find $SOURCE_DIR -name "*.log -type f -mtime +$DAYS | tar -zcvf $ZIP_FILE_NAME
+    find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS | tar -zcvf $ZIP_FILE_NAME
 
     # check archive is success or not
     if [ -f $ZIP_FILE_NAME ]; then 
         log "Archival is ... $G SUCCESS $N"
+
         #archive is success, Delete from Source_directory
+
         while IFS= read -r filepath; do
             # Process each line here
             echo "Deleting file: $filepath"

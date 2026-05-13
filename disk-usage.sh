@@ -5,7 +5,6 @@ G="\e[32m"
 y="\e[33m"
 N="\e[0m"
 MESSAGE=""
-LINE=df -hT | grep -v Filesystem
 
 
 log(){
@@ -17,8 +16,8 @@ USAGE_THRESHOLD=3
 
 while IFS= read -r line
 do
-    USAGE=$(echo $LINE | awk '(print $6)' | cut -d "%" -f1)
-    PARTITION=$(echo $LINE | awk '{print $7}')
+    USAGE=$(echo df -hT | grep -v Filesystem | awk '(print $6)' | cut -d "%" -f1)
+    PARTITION=$(echo df -hT | grep -v Filesystem | awk '{print $7}')
 
     if [ "$USAGE" -ge  "$USAGE_THRESHOLD" ]; then
         MESSAGE+="High Disk usage on $PARTITION:$USAGE% \n"

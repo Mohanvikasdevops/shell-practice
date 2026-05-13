@@ -5,12 +5,12 @@ LOGS_FOLDER="/var/log/shell-script"
 LOGS_FILE="/var/log/shell-script/backup.log"
 R="\e[31m"
 G="\e[32m"
-y="\e[33m"
+Y="\e[33m"
 N="\e[0m"
 #User should pass the source_dir and dest_dir, default is 14 days , but user  can override
-SCRIPT_DIR=$1
+SOURCE_DIR=$1
 DEST_DIR=$2 
-DAYS=${3:14} # 14 days is the default value, if the user not supplied
+DAYS=${3:-14} # 14 days is the default value, if the user not supplied
 
 log(){
     echo -e "$(date "+%Y-%m-%d %H:%M:%S") | $1" | tee -a $LOGS_FILE

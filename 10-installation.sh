@@ -11,10 +11,10 @@ dnf install nginx -y
 
 #By default shell will not execute, only executed when called
 VALIDATE(){
-    if [ $? -ne  0 ]; then
-        echo "Installing Nginx ... FAILURE"
-        exit 1
-    else
-        echo "Installing Nginx ... SUCCESS"
-    fi
+if [ $? -ne  0 ]; then
+    echo "Installing Nginx ... FAILURE"
+    exit 1
+else
+    echo "Installing Nginx ... SUCCESS"
+fi
 }

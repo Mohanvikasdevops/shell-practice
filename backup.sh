@@ -11,6 +11,9 @@ SCRIPT_DIR=$1
 DEST_DIR=$2 
 DAYS=${3:14} # 14 days is the default value, if the user not supplied
 
+log(){
+    echo -e "$(date "+%Y-%m-%d %H:%M:%S") | $1" | tee -a $LOGS_FILE
+}
 
 
 if [ $USERID -ne 0 ]; then
@@ -30,7 +33,7 @@ if [ $# -lt 2 ]; then
 fi
 
 if [! -d source_DIR ]; then 
-    echo -e "$R Source Direcory: $SOURCE_DIR does not exist $N"
+    log "$R Source Direcory: $SOURCE_DIR does not exist $N"
     exit 1
 fi
   
